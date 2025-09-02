@@ -1,7 +1,6 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +11,7 @@ import javax.swing.WindowConstants;
 public class FrmJuego extends JFrame {
 
     private JPanel pnlJugador1, pnlJugador2;
+    private Jugador jugador1, jugador2;
 
     public FrmJuego() {
 
@@ -60,11 +60,18 @@ public class FrmJuego extends JFrame {
 
         });
 
+        // crear las instancias
+        jugador1 = new Jugador();
+        jugador2 = new Jugador();
+
     }
 
     private void repartir() {
-        Carta cartaDeLaSuerte = new Carta(new Random());
-        cartaDeLaSuerte.mostrar(pnlJugador1, 10, 10);
+        jugador1.repartir();
+        jugador2.repartir();
+
+        jugador1.mostrar(pnlJugador1);
+        jugador2.mostrar(pnlJugador2);
     }
 
     private void verificar() {
