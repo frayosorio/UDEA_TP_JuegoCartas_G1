@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.WindowConstants;
@@ -12,6 +13,7 @@ public class FrmJuego extends JFrame {
 
     private JPanel pnlJugador1, pnlJugador2;
     private Jugador jugador1, jugador2;
+    JTabbedPane tpJugadores;
 
     public FrmJuego() {
 
@@ -35,7 +37,7 @@ public class FrmJuego extends JFrame {
         pnlJugador2.setBackground(new Color(0, 255, 255));
         pnlJugador2.setLayout(null);
 
-        JTabbedPane tpJugadores = new JTabbedPane();
+        tpJugadores = new JTabbedPane();
         tpJugadores.addTab("Martín Estrada Contreras", pnlJugador1);
         tpJugadores.addTab("Raúl Vidal", pnlJugador2);
         tpJugadores.setBounds(10, 40, 550, 200);
@@ -75,7 +77,14 @@ public class FrmJuego extends JFrame {
     }
 
     private void verificar() {
-
+        switch (tpJugadores.getSelectedIndex()) {
+            case 0:
+                JOptionPane.showMessageDialog(null, jugador1.getGrupos());
+                break;
+            case 1:
+                JOptionPane.showMessageDialog(null, jugador2.getGrupos());
+                break;
+        }
     }
 
 }
